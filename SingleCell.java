@@ -1,6 +1,6 @@
 
 public class SingleCell extends HoneycombShade {
-    private static final double headerPrice = 16.0;
+    private double headerPrice = 16.0;
     private static final double materialPrice = 12.0;
     private static final double Rvalue = 2.2;
     private CordStyle style;
@@ -31,12 +31,12 @@ public class SingleCell extends HoneycombShade {
         return CordStyle.PULL; //+ " or " + CordStyle.CONTINUOUS;
     }
 
-    // public void setHeaderPrice(CordStyle style) {
-    // switch(style) {
-    // case PULL:       headerPrice = headerPrice       ; break;
-    // case CONTINUOUS: headerPrice = headerPrice + 1.0 ; break;
-    // }
-    // }
+    public void setHeaderPrice(CordStyle style) {
+    switch(style) {
+    case PULL:       headerPrice = headerPrice       ; break;
+    case CONTINUOUS: headerPrice = headerPrice + 1.0 ; break;
+     }
+     }
 
     @Override
     public double getMaterialPrice() {
