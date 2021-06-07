@@ -5,8 +5,9 @@ public class SingleCell extends HoneycombShade {
     private static final double Rvalue = 2.2;
     private CordStyle style;
     private boolean cordPositionOnRight = true;
+    private double updatedHeaderPrice;
 
-    public SingleCell(double height, double width, boolean cordPositionOnRight){
+    public SingleCell(double height, double width, CordStyle style, boolean cordPositionOnRight){
         super (height, width, Rvalue, headerPrice, materialPrice);
         setCordStyle(style);
         //setHeaderPrice(style);
@@ -28,7 +29,7 @@ public class SingleCell extends HoneycombShade {
     
     @Override
     public CordStyle getCordStyle() {
-        return CordStyle.PULL; //+ " or " + CordStyle.CONTINUOUS;
+        return style;
     }
 
     // public void setHeaderPrice(CordStyle style) {
@@ -43,23 +44,20 @@ public class SingleCell extends HoneycombShade {
         return materialPrice;
     }
 
-    // @Override
-    // public double getHeaderPrice() {
-    // switch(style) {
-    // //case PULL:       headerPrice = headerPrice       ; break;
-    // case CONTINUOUS: continousHeaderPrice = headerPrice + 1.0 ; break;
-    // }
-    // return continousHeaderPrice;
-    // }
+    @Override
+    public double getHeaderPrice() {
+    switch(style) {
+    case PULL:       updatedHeaderPrice = headerPrice       ; break;
+    case CONTINUOUS: updatedHeaderPrice = headerPrice + 1.0 ; break;
+    }
+    return updatedHeaderPrice;
+    }
+    
     public boolean getCordPositionOnRight() {
         return cordPositionOnRight;
     }
 
-    @Override
-    public double getHeaderPrice() {
-        return headerPrice;
-    }
-
+    
     @Override
     public double getRvalue() {
         return Rvalue;

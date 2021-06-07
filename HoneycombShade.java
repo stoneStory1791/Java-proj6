@@ -6,7 +6,7 @@
  * @version (version number or date here)
  */
 public abstract class HoneycombShade extends WindowCovering {
-    private static final String operation = "Operation options are: raise or lower";
+    private static final String operation = "raise or lower";
     private CordStyle style;
     
     public enum CordStyle {
